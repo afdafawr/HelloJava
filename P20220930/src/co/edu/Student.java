@@ -1,5 +1,7 @@
 package co.edu;
 
+import java.util.Arrays;
+
 public class Student {
 	//필드(속성들)
 	private String studNo;
@@ -8,7 +10,12 @@ public class Student {
 	private int age;
 	private String[] hobbies = new String[5];
 	
-	//생성자(필드의 값을 초기화)
+	//정적 메소드.
+	public static void staticMethod() { // 소속이 클래스
+		System.out.println("staticMethod call.");
+	}
+	
+	//생성자(필드의 값을 초기화) 생성자 오버로딩(동일한 이름의 생성자를 여러번 정의)
 	public Student() {
 		this.studNo = "기본값";
 		this.studName = "기본값";
@@ -21,8 +28,7 @@ public class Student {
 	}
 	
 	public Student(String studNo, String studName, String major) {
-		this.studNo = studNo;
-		this.studName = studName;
+		this(studNo, studName);
 		this.major = major;
 	}
 	//메소드
@@ -108,5 +114,11 @@ public class Student {
 	}
 	void sleep() {
 		System.out.println(studName + "잠잔다");
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studNo=" + studNo + ", studName=" + studName + ", major=" + major + ", age=" + age
+				+ ", hobbies=" + Arrays.toString(hobbies) + "]";
 	}
 }

@@ -19,8 +19,9 @@ public class WhileBankApp {
 				int money = scn.nextInt();
 				for(int i=0; i<banks.length; i++)
 				{
-					if(banks[i] != null && banks[i].accNo.equals(accNo))
-					banks[i].balance += money;
+					if(banks[i] != null && banks[i].getAccNo().equals(accNo)) {
+						banks[i].setBalance(money);
+					}
 				}
 			}
 			else if(menu == 2) {
@@ -29,10 +30,10 @@ public class WhileBankApp {
 				System.out.println("출금할 금액 >>> ");
 				int money = scn.nextInt();
 			for(int i=0; i<banks.length; i++)
-			if(banks[i] != null && banks[i].accNo.equals(accNo)){
+			if(banks[i] != null && banks[i].getAccNo().equals(accNo)){
 					{
-						if(banks[i].balance >= money )
-							banks[i].balance -= money;
+						if(banks[i].getBalance()>= money )
+							banks[i].setBalance(-money);
 						else
 							System.out.println("잔액 부족");
 					}
@@ -43,8 +44,8 @@ public class WhileBankApp {
 				System.out.println("조회할 계좌번호 입력 >>>" );
 				String accNo = scn.nextLine();
 				for(int i=0; i<banks.length; i++)
-				if(banks[i] != null && banks[i].accNo.equals(accNo)) {
-					System.out.println("잔액: " + banks[i].balance);
+				if(banks[i] != null && banks[i].getAccNo().equals(accNo)) {
+					System.out.println("잔액: " + banks[i].getBalance());
 				}
 			}
 			else if(menu == 4) {
@@ -59,8 +60,8 @@ public class WhileBankApp {
 				String owner = scn.nextLine();
 				
 				Account acc = new Account(); //  인스턴스 생성
-				acc.accNo = accNo;
-				acc.owner = owner;
+				acc.setAccNo(accNo);
+				acc.setOwner(owner);;
 				for(int i=0; i<banks.length; i++) {
 				if(banks[i] == null) {
 					banks[i] = acc;
