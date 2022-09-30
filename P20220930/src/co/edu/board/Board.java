@@ -40,7 +40,8 @@ public class Board {
 
 	@Override
 	public String toString() {
-		return "Board [boardNo=" + boardNo + ", title=" + title + ", content=" + content + "]";
+		return "Board [boardNo=" + boardNo + ", title=" + title +
+				", content=" + content + "] \n";
 	}
 	
 }

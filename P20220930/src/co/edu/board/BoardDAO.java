@@ -1,9 +1,17 @@
 package co.edu.board;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 // 기능만.
 public class BoardDAO {
+	// Singleton 방식의 인스턴스 생성. 목적은 여러개의 인스턴스 안만드려고
+	private static BoardDAO instance = new BoardDAO(); //static이면 클래스에 소속
+	private BoardDAO() {} // 생성자
+	public static BoardDAO getInstance() { //메소드
+		return instance;
+	}
+	
 	Scanner scn = new Scanner(System.in);
 	Board[] myBoards = new Board[100];
 	//1.글등록
@@ -38,6 +46,10 @@ public class BoardDAO {
 	//3.글상세보기
 	public void boardDetail() {
 		System.out.println("글상세보기 목록입니다");
+		for(int i=0; i<myBoards.length; i++) {
+		if(myBoards[i] != null)
+		System.out.println(myBoards[i].toString());
+		}
 		System.out.println("글 번호를 입력하시오");
 		System.out.println("글번호 입력 >> ");
 		int bNo = scn.nextInt();
