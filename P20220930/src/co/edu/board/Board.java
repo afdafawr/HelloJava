@@ -1,9 +1,9 @@
 package co.edu.board;
 
 public class Board {
-	private int boardNo;
-	private String title;
-	private String content;
+	private int boardNo; //글번호
+	private String title; //글제목
+	private String content; //글내용
 	
 	public Board() {} //매개변수가 없는 기본생성자.
 	
